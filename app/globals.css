@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #f9f8f6;
+  --color-card: #ffffff;
+  --color-accent: #4b423c;
+  --color-text: #3f3f3f;
+  --color-muted: #6b5e55;
+  --color-tag: #e8e4dc;
+  --color-tag-text: #4b423c;
+}
+
+body {
+  @apply bg-[var(--color-bg)] text-[var(--color-text)] font-sans leading-relaxed;
+}
+
+a {
+  @apply text-[var(--color-accent)] hover:text-[var(--color-muted)] transition-colors;
+}
+
+/* カード */
+.card {
+  @apply bg-[var(--color-card)] shadow-md rounded-2xl p-6 transition-transform duration-200 hover:scale-[1.02];
+}
+
+.card-title {
+  @apply text-lg font-semibold mb-2 text-[var(--color-accent)];
+}
+
+.card-text {
+  @apply text-sm text-[var(--color-text)];
+}
+
+/* ボタン */
+.btn {
+  @apply font-medium py-2 px-5 rounded-md bg-[var(--color-accent)] text-white hover:bg-[var(--color-muted)] transition-colors;
+}
+
+/* タグ */
+.badge {
+  @apply inline-block px-3 py-1 rounded-full text-[var(--color-tag-text)] bg-[var(--color-tag)] text-xs font-semibold;
+}
+
+/* Header */
+header {
+  @apply bg-[var(--color-bg)] border-b border-[var(--color-muted)];
+}
+
+header a {
+  @apply text-[var(--color-accent)] hover:text-[var(--color-muted)];
+}
+
+/* Footer */
+footer {
+  @apply bg-[var(--color-bg)] border-t border-[var(--color-muted)] text-[var(--color-muted)] py-6;
+}
+
+footer a {
+  @apply text-[var(--color-accent)] hover:text-[var(--color-muted)];
+}
+
+/* ========================================
+   Highlight.js - コードブロックスタイル
+   ======================================== */
+
+/* コードブロック全体 */
+pre code.hljs {
+  @apply block rounded-lg p-4 overflow-x-auto;
+  background: #2d2d2d;
+  color: #e8e8e8;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  border: 1px solid #404040;
+}
+
+/* インラインコード */
+:not(pre) > code {
+  @apply rounded px-2 py-0.5 font-mono text-sm;
+  background: #2d2d2d;
+  color: #e8e8e8;
+  border: 1px solid #404040;
+}
+
+/* コメント */
+.hljs-comment,
+.hljs-quote {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* キーワード */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-type {
+  color: #ff7b72;
+}
+
+/* 文字列 */
+.hljs-string,
+.hljs-attr,
+.hljs-template-variable {
+  color: #a5d6ff;
+}
+
+/* 数値 */
+.hljs-number {
+  color: #79c0ff;
+}
+
+/* 関数名 */
+.hljs-function,
+.hljs-title {
+  color: #d2a8ff;
+}
+
+/* パラメータ・変数 */
+.hljs-params,
+.hljs-variable,
+.hljs-template-tag {
+  color: #ffa657;
+}
+
+/* ビルトイン */
+.hljs-built_in,
+.hljs-class .hljs-title {
+  color: #79c0ff;
+}
+
+/* HTMLタグ */
+.hljs-tag,
+.hljs-name {
+  color: #7ee787;
+}
+
+/* HTML属性 */
+.hljs-attribute {
+  color: #79c0ff;
+}
+
+/* 正規表現 */
+.hljs-regexp,
+.hljs-link {
+  color: #a5d6ff;
+}
+
+/* シンボル */
+.hljs-symbol,
+.hljs-bullet {
+  color: #79c0ff;
+}
+
+/* 削除 */
+.hljs-deletion {
+  color: #ffa198;
+  background: rgba(255, 129, 130, 0.15);
+}
+
+/* 追加 */
+.hljs-addition {
+  color: #7ee787;
+  background: rgba(46, 160, 67, 0.15);
+}
+
+/* 強調 */
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+/* メタ */
+.hljs-meta {
+  color: #9ca3af;
+}
+
+/* セクション */
+.hljs-section {
+  color: #79c0ff;
+  font-weight: bold;
+}
+
+/* 言語別の調整 */
+.language-bash .hljs-built_in {
+  color: #ff7b72;
+}
+
+.language-css .hljs-selector-class,
+.language-css .hljs-selector-id {
+  color: #7ee787;
+}
+
+.language-css .hljs-property {
+  color: #79c0ff;
+}
+
+.language-json .hljs-attr {
+  color: #79c0ff;
+}
