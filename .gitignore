@@ -1,2 +1,18 @@
+# Next.js
+.next/
+out/
+node_modules/
+
+# OS 系
 .DS_Store
-node_modules
+Thumbs.db
+
+# エディタ系
+.vscode/
+.idea/
+
+# npm/yarn log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*

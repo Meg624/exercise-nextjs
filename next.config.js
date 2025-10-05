@@ -1,8 +1,13 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  experimental: {
-    appDir: true,
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/, // MDX ファイルを認識
+  options: {
+    // 必要に応じて rehype / remark プラグインを追加可能
+    // rehypePlugins: [require('rehype-highlight')],
   },
+})
+
+const nextConfig = withMDX({
   images: {
     domains: ['images.unsplash.com', 'via.placeholder.com'],
     formats: ['image/webp', 'image/avif'],
@@ -24,6 +29,7 @@ const nextConfig = {
       },
     ]
   },
-}
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'], // MDX をページとして認識
+})
 
 module.exports = nextConfig
