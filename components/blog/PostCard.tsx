@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { PostData } from 'types'
+import { getReadingTime } from 'lib/posts'
 
 interface PostCardProps {
   post: PostData
@@ -9,8 +10,11 @@ interface PostCardProps {
 export function PostCard({ post, isFeatured = false }: PostCardProps) {
   // 画像URL（注目記事とブログ一覧で異なるデフォルト画像）
   const imageUrl = post.coverImage || (isFeatured 
-  ? '/images/default-image.jpg'     
-  : '/images/featured-image.jpg')     
+    ? '/images/featured-image.jpg'     // 注目記事のデフォルト
+    : '/images/default-image.jpg')     // ブログ一覧のデフォルト
+
+  // ✅ 読了時間を計算
+  const readingTime = getReadingTime(post.content)
 
   return (
     <Link
@@ -56,16 +60,14 @@ export function PostCard({ post, isFeatured = false }: PostCardProps) {
           </p>
         )}
 
-        {/* 著者・日付・読了時間 */}
+        {/* ✅ 著者・日付・読了時間 */}
         <div className="flex items-center justify-between text-sm text-[var(--color-muted)]">
           <span>{post.author || 'Tech Blog'}</span>
           <div className="flex items-center gap-3">
             <span>{new Date(post.date).toLocaleDateString('ja-JP')}</span>
-            {post.readingTime && (
-              <span className="flex items-center gap-1">
-                📖 {post.readingTime}分
-              </span>
-            )}
+            <span className="flex items-center gap-1">
+              ⏱️ {readingTime}分
+            </span>
           </div>
         </div>
       </div>
